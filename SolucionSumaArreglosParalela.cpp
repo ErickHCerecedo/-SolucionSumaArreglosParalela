@@ -39,10 +39,13 @@ int main()
     setArray(A, size);
     setArray(B, size);
 
+    /* Paralelizacion con OMP*/
     #pragma omp parallel
     {   
         int tid = omp_get_thread_num();
         threads[tid] = 0;
+
+        /* Comienza paralelizacion de ciclo for*/
         #pragma omp for
         for(int i=0;i<size;i++)
         {
